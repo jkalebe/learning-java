@@ -1,4 +1,4 @@
-package enumereations.classes;
+package learningjava.enumereations.classes;
 
 public class Restaurante{
     private TipoItem tipoItem;

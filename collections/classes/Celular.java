@@ -1,4 +1,4 @@
-package collections.classes;
+package learningjava.collections.classes;
 
 public class Celular{
     private String nome;
@@ -17,6 +17,11 @@ public class Celular{
         this.nome = nome;
         this.IMEI = IMEI;
     }
+
+    public String getIMEI() {
+        return this.IMEI;
+    }
+
 
     //Reflexivo = x.equals(x)  tem que ser true para tudo que for difente de null
     //Simetrico para x e y direfentes  de null, se x.equals(y) == true logo x.equals(x) tem que ser true
@@ -42,6 +47,17 @@ public class Celular{
         if(this.getClass() != object.getClass()) return false;
         Celular outroCelular = (Celular) object;
         return IMEI != null && IMEI.equals(outroCelular.IMEI);
+        //return nome != null && nome.equals(outroCelular.nome);
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " nome='" + getNome() + "'" +
+            ", IMEI='" + getIMEI() + "'" +
+            "}";
+    }
+
 
 }

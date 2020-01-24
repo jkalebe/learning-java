@@ -1,4 +1,4 @@
-package br.com.abc.collections.test;
+package learningjava.collections.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,22 +10,27 @@ public class ListTest{
         nomes.add("Boa");
         nomes.add("Ok test");
         nomes.add("Add foreach");
+
+        List<String> nomes2 = new ArrayList<String>();
+        //add all
+        nomes2.addAll(nomes);
+
+        //remove all
+        nomes.clear();
+
         
         // for(Object a:nomes){
         //     System.out.println(a);
         // }
 
+        //foreach no java 8
         nomes.forEach(System.out::println);
 
+        //foreach tradicional
         for(Object a:nomes){
             System.out.println(a);
         }
-        nomes.add("add + 1");
-        
-        for(Object a:nomes){
-            System.out.println(a);
-        }
-
-        List<Integer> numeros = new ArrayList<Integer>();
+       
+        //List<Integer> numeros = new ArrayList<Integer>();
     }
 }

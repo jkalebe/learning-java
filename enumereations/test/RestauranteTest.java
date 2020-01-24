@@ -1,7 +1,7 @@
-package enumereations.test;
+package learningjava.enumereations.test;
 
-import enumereations.classes.Restaurante;
-import enumereations.classes.TipoItem;
+import learningjava.enumereations.classes.Restaurante;
+import learningjava.enumereations.classes.TipoItem;
 
 public class RestauranteTest{
     public static void main(String[] args) {

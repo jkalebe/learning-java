@@ -1,6 +1,6 @@
-package collections.test;
+package learningjava.collections.test;
 
-import collections.classes.Celular;
+import learningjava.collections.classes.Celular;
 
 public class EqualsTest{
     public static void main(String[] args) {
