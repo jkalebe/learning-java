@@ -11,7 +11,9 @@ public class FileTest{
             boolean exist = file.exists();
             System.out.println("Permissão de leitura: "+file.canRead());
             System.out.println("path "+file.getPath());
-            System.out.println("path "+file.getAbsolutePath());
+            String string_dir = file.getAbsolutePath();
+            string_dir = string_dir.substring(0, string_dir.indexOf("."))+"_new.txt";
+            System.out.println("path "+string_dir);
             System.out.println("Directory? "+file.isDirectory());
             System.out.println("Hidden? "+file.isHidden());
             System.out.println("LastModified? "+new Date(file.lastModified()));
