@@ -11,6 +11,10 @@ public class Stacks{
         System.out.println("Stack created!");
         System.out.println("Size: "+size());
         System.out.println("Push: "+push(5));
+        System.out.println("Push: "+push(8));
+        System.out.println("Push: "+push(9));
+        System.out.println("Push: "+push(8));
+        System.out.println("Push: "+push(25));
         System.out.println("Pop " + pop());
         System.out.println("isEmpty: "+isEmpty());
     }
@@ -22,8 +26,8 @@ public class Stacks{
 
     public static int push(int n){
         if(ponteiro < stack.length){
-            stack[ponteiro]=n;
             ponteiro++;
+            stack[ponteiro]=n;
             return 1;
         }
         return 0;
