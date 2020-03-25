@@ -1,0 +1,11 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "/home/kalebe/Downloads/**/*.jar"
+        ],
+        "exclude": [
+            "/home/kalebe/Downloads/NgsReadsTreatmentGI_v1.2.jar"
+        ]
+    }
+}

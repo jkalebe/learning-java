@@ -4,7 +4,7 @@ public class Produto implements Comparable<Produto>{
     private String serialNumber;
     private String nome;
     private Double preco;
-
+    private int quantidade;
 
 
     public Produto(String serialNumber, String nome, double preco) {
@@ -12,6 +12,25 @@ public class Produto implements Comparable<Produto>{
         this.nome = nome;
         this.preco = preco;
     }
+
+    public Produto(String serialNumber, String nome, Double preco, int quantidade) {
+        this.serialNumber = serialNumber;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
+
+    
+
+    public int getQuantidade() {
+        return this.quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    
 
     @Override
     public String toString() {
