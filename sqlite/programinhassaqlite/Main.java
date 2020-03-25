@@ -1,7 +1,9 @@
 package sqlite.programinhassaqlite;
 
+import java.sql.Statement;
 import java.lang.System.Logger;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import sqlite.conexoes.ConexaoSQLite;
@@ -9,49 +11,33 @@ import sqlite.conexoes.ConexaoSQLite;
 public class Main{
     public static void main(String[] args) {
         ConexaoSQLite conexaoSQLite = new ConexaoSQLite();
-        CriarBancoSQLite criarBancoSQLite = new CriarBancoSQLite(conexaoSQLite);
-
-        criarBancoSQLite.criarTabelaPessoa();
-
-        Pessoa pessoa1 = new Pessoa();
-        pessoa1.setId(1);
-        pessoa1.setNome("kalebe");
-        pessoa1.setIdade(45);
+        
+        ResultSet resultSet = null;
+        Statement statement = null;
 
         conexaoSQLite.conectar();
+        String query = "SELECT * FROM tbl_pessoa;";
 
-        String sqlInsert = " INSERT INTO tbl_pessoa ("
-                            +"id,"
-                            +"nome,"
-                            +"idade"
-                            +") VALUES(?,?,?)"
-                            +";";
-        PreparedStatement preparedStatement = conexaoSQLite.criarPreparedStatement(sqlInsert);
+        statement = conexaoSQLite.criarStatement();
 
         try {
-            preparedStatement.setInt(1, pessoa1.getId());
-            preparedStatement.setString(2, pessoa1.getNome());
-            preparedStatement.setInt(3, pessoa1.getIdade());
-
-            int resultado = preparedStatement.executeUpdate();
-
-            if(resultado == 1){
-                System.out.println("Pessoa inserida");
-            }else{
-                System.out.println("Pessoa não inserida! =[");
+            resultSet = statement.executeQuery(query);
+            while(resultSet.next()){
+                System.out.println("Dados da pessoa");
+                System.out.println("id = "+resultSet.getInt("id"));
+                System.out.println("nome = "+resultSet.getString("nome"));
+                System.out.println("idade = "+resultSet.getInt("idade"));
+                System.out.println("-----------------------------------------");
             }
-
         } catch (SQLException e) {
-            System.out.println("Pessoa não inserida! =[");
+            System.out.println("Erro misteriosos");
         }finally{
-            if(preparedStatement != null){
-                try {
-                    preparedStatement.close();
-                } catch (SQLException e) {
-                    //
-                }
+            try {
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Erro misterioso de fechamento");
             }
-            conexaoSQLite.desconectar();
         }
     }
 }
